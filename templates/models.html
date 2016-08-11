@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block extra_head %}
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='model.js')}}"></script>
+{% endblock %}
+{% block content %}
+<body>
+  <div class='conteiner'>
+    <!-- Single button -->
+    <div class="btn-group">
+      <button type="button" id="sayHello" class="btn btn-default dropdown-toggle" \
+                            data-toggle="dropdown">Выберите марку автомобиля<span class="caret"></span></button>
+      <ul class="dropdown-menu" role="menu" id="menu">
+        {% for brand in brands %}
+          <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+  </div>
+</body>
+{% endblock %}
+
+
