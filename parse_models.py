@@ -3,7 +3,7 @@
 import requests
 # from urllib import quote
 from slugify import Slugify, CYRILLIC
-from models import Models
+from models import Models, Brands, Years
 
 
 def brand_auto():
@@ -31,7 +31,7 @@ def model_auto():
         models= []
         page = requests.get(brand['url']).text
         title = page.split('<title>')[1].split('</title>')[0]
-        print(title)
+        #  print(title)
         all_models = page.split('<div class="au-grids au-openable-list-body">')[1]
         all_models = all_models.split('title="')
         for one in all_models[1:]:
@@ -39,17 +39,37 @@ def model_auto():
             models.append(title)
         auto['brand'] = brand['title']
         auto['models'] = models
+        Brands.get_or_create(brand=auto['brand'])
         all_auto.append(auto)
-        Models.create(
-            brand=auto['brand'],
-            models=auto['models'])
     return all_auto
 
 
+def save_models():
+    all_auto = model_auto()
+    for auto in all_auto:
+        for brand in  Brands.select().where(Brands.brand == auto['brand']):
+            #  print(brand.brand)
+            for model in auto['models']:
+                Models.create(brand=brand,
+                              models=model)
+
+
+
+def save_year():
+    i = 1950
+    n = 2016
+    if i <= n:
+        year = i + 1
+        goto 3
+        Years.create(year=year)
+
 def main():
+    save_models()
+    save_year()
     #  brand_auto()
-    for auto in Models.select().where(Models.brand == 'УАЗ'):
-        print( auto)
+    for brand in Brands.select().where(Brands.brand == 'УАЗ'):
+        for auto in Models.select().where(Models.brand == brand):
+            print(auto.models)
 
 
 if __name__ == '__main__':

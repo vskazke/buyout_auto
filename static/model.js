@@ -19,8 +19,25 @@ $(document).ready(function(){
     $('.brand').click(function(){
         var name = $(this.innerHTML).get(0).innerText;
         // var name = $('#name').get(0).innerHTML;
-        $.post('/hello', {name: name}, function (answer) {
-            $('#sayHello').get(0).innerHTML = answer + '<span class="caret">';
+        $.post('/getBrand', {name: name}, function (answer) {
+            $('#brandButton').get(0).innerHTML = answer + '<span class="caret">';
+        });
+        $.post('/getModel', {name: name}, function(answer) {
+            $('#model').html('');
+
+            // $('#model').html(answer.models);
+            console.log(answer.models);
+
+            for (var i = 0; i < answer.models.length; i += 1) {
+                $('#model').append('<li class="model"><a href="#">' + answer.models[i] + '</a></li>');
+            };
+            $('.model').click(function(){
+                var model = $(this.innerHTML).get(0).innerText;
+                $.post('/changeModel', {name: model}, function (answer) {
+                    $('#modelButton').get(0).innerHTML = answer + '<span class="caret">';
+                });
+                console.log(model);
+            });
         });
     });
 })

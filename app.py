@@ -2,7 +2,7 @@ from flask import Flask
 from flask_peewee.db import Database
 #  from flask_debugtoolbar import DebugToolbarExtension
 DATABASE = {
-        'name': 'example.db',
+        'name': 'brand.db',
         'engine': 'peewee.SqliteDatabase',
 }
 

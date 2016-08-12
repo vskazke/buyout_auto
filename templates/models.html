@@ -6,15 +6,53 @@
 {% block content %}
 <body>
   <div class='conteiner'>
-    <!-- Single button -->
-    <div class="btn-group">
-      <button type="button" id="sayHello" class="btn btn-default dropdown-toggle" \
-                            data-toggle="dropdown">Выберите марку автомобиля<span class="caret"></span></button>
-      <ul class="dropdown-menu" role="menu" id="menu">
-        {% for brand in brands %}
-          <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
-        {% endfor %}
-        </ul>
+    <h1>Ваш автомобиль</h1>
+    <div class='row'>
+      <div class="col-md-3">
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" id="brandButton" class="btn btn-default dropdown-toggle" \
+                                data-toggle="dropdown">марка<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" id="menu">
+            {% for brand in brands %}
+              <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" id="yearButton" class="btn btn-default dropdown-toggle" \
+                                data-toggle="dropdown">год<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" id="year">
+            {% for year in years %}
+              <li class="year"><a href="#">{{year.year}}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="col-md-3">
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
+                                data-toggle="dropdown">модель<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" id="model"></ul>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" id="kppButton" class="btn btn-default dropdown-toggle" \
+                                data-toggle="dropdown">кпп<span class="caret"></span></button>
+          <ul class="dropdown-menu" role="menu" id="kpp">
+              <li class="kpp"><a  href="#">автомат</a></li>
+              <li class="kpp"><a  href="#">механика</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </body>
