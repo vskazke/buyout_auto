@@ -1,8 +1,9 @@
 from flask import render_template, jsonify, abort, redirect, url_for, request
 import json
-from app import app
+from app import app, mail
+#  from config import ADMINS
 from models import Models, Brands, Years
-
+from flask_mail import Message
 
 @app.route('/')
 def index():
@@ -40,3 +41,69 @@ def get_model():
 def change_model():
     name = request.form['name']
     return name
+
+
+@app.route('/getYear', methods=['POST'])
+def get_year():
+    name = request.form['name']
+    return name
+
+
+@app.route('/getKpp', methods=['POST'])
+def get_kpp():
+    name = request.form['name']
+    return name
+
+
+@app.route('/result', methods=['POST'])
+def result():
+    brand = request.form['brand']
+    model = request.form['model']
+    year = request.form['year']
+    kpp = request.form['kpp']
+    km = request.form['km']
+    price = request.form['price']
+    name = request.form['name']
+    phone = request.form['phone']
+    comment = request.form['comment']
+    print(brand)
+    #  massage = 'ggggg'
+    #  subject = "Марка: %s" % brand
+    msg = Message("hello",
+                  sender='agafonova.anastasia@gmail.com',
+                  recipients=["vskazke.info@gmail.com"],)
+    msg.body = 'text body'
+    msg.html = "<ul>Автомобиль<li>Марка: %s</li>,\
+            <li>модель: %s</li>,\
+            <li>год: %s</li>,\
+            <li>кпп: %s</li,\
+            <li>пробег: %s</li>,\
+            <li>цена: %s</li></ul>,\
+            <ul>Контактные данные<li>имя: %s</li>,\
+            <li>тел: %s</li>,\
+            <li>коммент: %s</li></ul>" %\
+        (brand, model, year, kpp, km, price, name, phone, comment)
+    mail.send(msg)
+    return 'Отправлено'
+
+    #  return jsonify(brand=brand,
+                   #  model=model,
+                   #  year=year,
+                   #  kpp=kpp,
+                   #  km=km,
+                   #  price=price,
+                   #  name=name,
+                   #  phone=phone,
+                   #  comment=comment)
+
+
+@app.route('/message')
+def test_message():
+    msg = Message("hello",
+                  sender='agafonova.anastasia@gmail.com',
+                  recipients=["vskazke.info@gmail.com"])
+    msg.body = 'text body'
+    msg.html = '<b>HTML</b> body'
+    #  with app.app_context():
+    mail.send(msg)
+    return 'Отправлено'

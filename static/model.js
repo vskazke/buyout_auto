@@ -40,4 +40,73 @@ $(document).ready(function(){
             });
         });
     });
+    $('.year').click(function(){
+        var year = $(this.innerHTML).get(0).innerText;
+        // var name = $('#name').get(0).innerHTML;
+        $.post('/getYear', {name: year}, function (answer) {
+            $('#yearButton').get(0).innerHTML = answer + '<span class="caret">';
+        });
+    });
+    $('.kpp').click(function(){
+        var kpp = $(this.innerHTML).get(0).innerText;
+        // var name = $('#name').get(0).innerHTML;
+        $.post('/getKpp', {name: kpp}, function (answer) {
+            $('#kppButton').get(0).innerHTML = answer + '<span class="caret">';
+        });
+    });
+    $( "#phone" ).focus(function() {
+        var num = $(this).get(0).value = '+7 --- --- -- --';
+        $('#phone').click(function() {
+            $(this).get(0).setSelectionRange(2, 2);
+            console.log(this.value);
+        });
+        var n = this.value;
+        $('#phone').keypress(function(event) {
+            var num = $(this).get(0).selectionStart;
+            var element = String.fromCharCode(event);
+            // if ($(this).get(0).selectionStart == 1 || $(this).get(0).selectionStart == 0) {
+                // $(this).attr("id", "disabled");
+            // };
+            // $("#disabled").attr("disabled", "disabled");
+            if (num ==2 || num==6 || num == 10 || num == 13) {
+                this.value = this.value.substring(0, num) + ' ';
+            }
+            if (num == 0 || num == 1 ) {
+                return false;
+            };
+            if (event.which >= 48 && event.which <= 57 || event.which == 32) {
+                return;
+            } else { return false };
+
+        });
+    });
+    $("#send").click(function() {
+        // about auto
+        var brand = $("#brandButton").get(0).innerText;
+        var model = $("#modelButton").get(0).innerText;
+        var year = $("#yearButton").get(0).innerText;
+        var kpp = $("#kppButton").get(0).innerText;
+        var price = $("#price").get(0).value;
+        var km = $("#km").get(0).value;
+        // about person
+        var name = $("#name").get(0).value;
+        var phone = $("#phone").get(0).value;
+        var comment = $("#comment").get(0).value;
+        $.post('/result',
+            {'brand': brand,
+                'model': model,
+                'year': year,
+                'kpp': kpp,
+                'price': price,
+                'km':km,
+                'name': name,
+                'phone': phone,
+                'comment': comment},
+            function (answer) {
+                $('#answer').html(answer);
+        });
+
+    });
+
+
 })

@@ -58,10 +58,10 @@ def save_models():
 def save_year():
     i = 1950
     n = 2016
-    if i <= n:
-        year = i + 1
-        goto 3
-        Years.create(year=year)
+    while i < n:
+        i = i + 1
+        print(i)
+        Years.create(year=i)
 
 def main():
     save_models()
