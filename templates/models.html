@@ -1,15 +1,10 @@
-{% extends "base.html" %}
-{% block extra_head %}
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
-{% endblock %}
-{% block content %}
-<body>
-  <div class='conteiner'>
+  <div class='container'>
+    <div class="form">
+      <div class="col-md-6" id="form">
     <form action="models/">
       <div class='row'>
-        <h1>Ваш автомобиль</h1>
-          <div class="col-md-3">
+        <div class="col-md-6">
+          <h1>Ваш автомобиль</h1>
             <!-- Single button -->
             <div class="btn-group">
               <button type="button" id="brandButton" class="btn btn-default dropdown-toggle" \
@@ -20,9 +15,11 @@
                 {% endfor %}
               </ul>
             </div>
-          </div>
-          <div class="col-md-3">
-            <!-- Single button -->
+            <div class="btn-group">
+              <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
+                                    data-toggle="dropdown">модель<span class="caret"></span></button>
+              <ul class="dropdown-menu" role="menu" id="model"></ul>
+            </div>
             <div class="btn-group">
               <button type="button" id="yearButton" class="btn btn-default dropdown-toggle" \
                                     data-toggle="dropdown">год<span class="caret"></span></button>
@@ -32,22 +29,6 @@
                 {% endfor %}
               </ul>
             </div>
-          </div>
-          <div class="col-md-3">
-              <input class="form-group" type="text" id="km" placeholder="пробег">
-          </div>
-        </div>
-        <div class='row'>
-          <div class="col-md-3">
-            <!-- Single button -->
-            <div class="btn-group">
-              <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
-                                    data-toggle="dropdown">модель<span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" id="model"></ul>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <!-- Single button -->
             <div class="btn-group">
               <button type="button" id="kppButton" class="btn btn-default dropdown-toggle" \
                                     data-toggle="dropdown">кпп<span class="caret"></span></button>
@@ -56,43 +37,26 @@
                   <li class="kpp"><a  href="#">механика</a></li>
               </ul>
             </div>
+            <input class="form-group" type="text" id="km" placeholder="пробег">
+            <input class="form-group" type="text" id="price" placeholder="желаемая цена">
           </div>
-          <div class="col-md-3">
-              <input class="form-group" type="text" id="price" placeholder="желаемая цена">
-          </div>
-      </div>
-    </form>
-  </div>
-  <div class="conteiner">
-    <form role="form" action="models/">
-      <div class="row">
-        <h1>Контактные данные</h1>
-        <div class="col-md-4">
+          <div class="col-md-6">
+            <h1>Контактные данные</h1>
             <input class="form-group" type="text" id="name" placeholder="ваше имя">
-        </div>
-        <div class="col-md-4">
-            <input class="form-group" type="text" id="comment" placeholder="комментарий" maxlength = "16">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
             <input class="form-group" type="text" id="phone" placeholder="контактный телефон" maxlength = "16">
+            <input class="form-group" type="text" id="city" placeholder="город" value="Москва">
+            <!-- <textarea rows="6" cols="30" type="text" id="comment" placeholder="комментарий"></textarea> -->
+            <button type="button" id="send" class="btn btn-success">Отправить</button>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
+              <p id="answer"></p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-            <input class="form-group" type="text" id="city" placeholder="город" maxlength = "16" value="Москва">
-        </div>
-        <div class="col-md-4">
-          <button type="button" id="send" class="btn btn-success">Отправить</button>
-          <p id="answer"></p>
-        </div>
       </div>
     </form>
   </div>
-</div>
-
-</body>
-{% endblock %}
-
-

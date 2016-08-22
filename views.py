@@ -10,6 +10,11 @@ def index():
     return render_template('index2.html')
 
 
+@app.route('/base')
+def base():
+    return render_template('base.html')
+
+
 @app.route('/models', methods=['GET', ' POST'])
 def models():
     brands = Brands.select()
@@ -65,7 +70,6 @@ def result():
     price = request.form['price']
     name = request.form['name']
     phone = request.form['phone']
-    comment = request.form['comment']
     print(brand)
     #  massage = 'ggggg'
     #  subject = "Марка: %s" % brand
@@ -80,9 +84,8 @@ def result():
             <li>пробег: %s</li>,\
             <li>цена: %s</li></ul>,\
             <ul>Контактные данные<li>имя: %s</li>,\
-            <li>тел: %s</li>,\
-            <li>коммент: %s</li></ul>" %\
-        (brand, model, year, kpp, km, price, name, phone, comment)
+            <li>тел: %s</li></ul>" %\
+        (brand, model, year, kpp, km, price, name, phone)
     mail.send(msg)
     return 'Отправлено'
 

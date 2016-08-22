@@ -16,6 +16,10 @@
 
 
 $(document).ready(function(){
+    $('.form-group').focus(function() {
+        $(this).get(0).placeholder = '';
+        $(this).append('<div>dffff</div>');
+    });
     $('.brand').click(function(){
         var name = $(this.innerHTML).get(0).innerText;
         // var name = $('#name').get(0).innerHTML;
@@ -91,20 +95,25 @@ $(document).ready(function(){
         // about person
         var name = $("#name").get(0).value;
         var phone = $("#phone").get(0).value;
-        var comment = $("#comment").get(0).value;
-        $.post('/result',
-            {'brand': brand,
-                'model': model,
-                'year': year,
-                'kpp': kpp,
-                'price': price,
-                'km':km,
-                'name': name,
-                'phone': phone,
-                'comment': comment},
-            function (answer) {
-                $('#answer').html(answer);
-        });
+        if (phone.length != 0 && name.length != 0 && phone != '+7 --- --- -- --' && phone.length == 16) {
+            $.post('/result',
+                {'brand': brand,
+                    'model': model,
+                    'year': year,
+                    'kpp': kpp,
+                    'price': price,
+                    'km':km,
+                    'name': name,
+                    'phone': phone},
+                function (answer) {
+                    $('#answer').html(answer);
+            });
+        }else {
+            $("#name").css('background', 'red');
+            $("#name").get(0).placeholder = 'укажите ваше имя';
+            $("#phone").css('background', 'red');
+            $("#phone").get(0).placeholder = 'укажите номер телефона';
+        };
 
     });
 
