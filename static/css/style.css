@@ -140,6 +140,9 @@ a #menu {
 #content img {
     width: 100%;
 }
+#content {
+    max-width: 1060px;
+}
 .main-page .btn-group button{
     width: 200px;
     height: 50px;
@@ -168,9 +171,9 @@ p {
     border-bottom: 2px solid;
 }
 #lable {
-    width: 100px;
-    height: 100px;
-    padding-top: 10px;
+    width: 90px;
+    height: 90px;
+    padding-top: 15px;
 }
 #brand h1 span {
     color:#DF6509;
@@ -198,4 +201,32 @@ p {
 }
 #brand {
     padding-left: 18px;
+}
+#all-brands {
+    border: 4px solid;
+    border-radius: 30px;
+    border-color: black;
+    background-color: #DF6509;
+    padding: 10px;
+}
+#list {
+    background-color: black;
+    font-size:18px;
+    font-weight:600;
+    padding: 5px 0;
+    opacity: 0.8;
+
+}
+#list .col-md-6 {
+    padding: 5px 0;
+}
+
+#all-brands img {
+    width: 30px;
+}
+#all-brands button {
+    padding: 0;
+}
+#top {
+    max-width: 1060px;
 }

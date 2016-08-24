@@ -7,7 +7,11 @@ from flask_mail import Message
 
 @app.route('/')
 def index():
-    return render_template('index2.html')
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    return render_template('index2.html', brands=brands, years=years)
 
 
 @app.route('/base')

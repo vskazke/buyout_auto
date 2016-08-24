@@ -8,6 +8,7 @@ from app import db
 class Brands(db.Model):
 
     brand = CharField(unique=True)
+    icon = CharField(default='')
     #  def __unicode__(self):
         #  return self.brand
 

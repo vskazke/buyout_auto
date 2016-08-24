@@ -5,11 +5,35 @@
 {% endblock %}
 {%block content %}
   <div class="container" id='content'>
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-12">
       <div class='row'>
         <div class='col-md-9'>
           <h1><span>Срочный</span> выкуп авто в любой точке города</h1>
-          <img src="/static/main.jpg">
+          <img src="/static/main4.png">
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп любых авто</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>оценка автомобиля</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп авто с пробегом</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп авто без документов</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп авто на запчасти</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп авто с любыми проблемами</h1></button></a>
+          </div>
+          <div class='col-md-3'>
+            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
+          </div>
         </div>
         <div class='main-page'>
         <div class='col-md-3' id='form'>
@@ -43,36 +67,36 @@
         </div>
         </div>
       </div>
-      <div class='container menu'>
-        <div class='row'>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп любых авто</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>оценка автомобиля</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп авто с пробегом</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп авто без документов</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп авто на запчасти</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп авто с любыми проблемами</h1></button></a>
-          </div>
-          <div class='col-md-2'>
-            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
-          </div>
-        </div>
-      </div>
+      <!-- <div class='container menu'> -->
+        <!-- <div class='row'> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп любых авто</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>оценка автомобиля</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп авто с пробегом</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп авто без документов</h1></button></a> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <!-- <div class='row'> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп битых авто</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп авто на запчасти</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп авто с любыми проблемами</h1></button></a> -->
+          <!-- </div> -->
+          <!-- <div class='col-md-2'> -->
+            <!-- <a><button id='menu'><h1>выкуп битых авто</h1></button></a> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
       <div class='row' id='text'>
         <div class='col-md-9'>
         <h1>Срочный выкуп авто - дорого!</h1>
@@ -92,6 +116,15 @@
         Одно из главных достоинство нашей компании в том, что мы осуществляем выкуп авто в Москве в беспрерывном режиме – каждый день и круглосуточно. Для нас нет ограничений в выкупе абсолютно любой техники – будь то старенький ВАЗ или дорогая иномарка.
         </p>
         </div>
+        <div class='col-md-3' id='all-brands'>
+          <h4>Выкуп более 134 иномарок</h4>
+          <div class='col-md-12' id='list'>
+            {% for brand in brands %}
+              <div class='col-md-6'>
+                <button><img src='{{brand.icon}}'></button><a>{{brand.brand}}</a>
+              </div>
+            {% endfor %}
+          </div>
       </div>
       <div class='row'>
         <div class='col-md-9' id='string'>
