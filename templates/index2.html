@@ -1,69 +1,124 @@
 {% extends "base.html" %}
 {% block extra_head %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
 {% endblock %}
 {%block content %}
   <div class="container" id='content'>
     <div class="col-md-12">
-      <div class='row'>
-        <div class='col-md-9'>
-          <h1><span>Срочный</span> выкуп авто в любой точке города</h1>
-          <img src="/static/main4.png">
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп любых авто</h1></button></a>
+      <div class='col-md-9'>
+        <div class='row'>
+          <div class='col-md-12'>
+            <h1><span>Срочный</span> выкуп авто в любой точке города</h1>
+            <img src="/static/main4.png">
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп любых авто</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>оценка автомобиля</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп авто с пробегом</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 co-sm-3'> -->
+              <a><button id='menu'>выкуп авто без документов</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп битых авто</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп авто на запчасти</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп авто с любыми проблемами</button></a>
+            <!-- </div> -->
+            <!-- <div class='col-md-3 col-sm-3'> -->
+              <a><button id='menu'>выкуп битых авто</button></a>
+            <!-- </div> -->
+          <h1>Срочный выкуп авто - дорого!</h1>
+          <p>Если нет времени на поиск покупателя вашего автомобиля или срочно понадобились финансы , наша компания "Авто Семья" в сжатые сроки осуществит срочный выкуп авто. Причем такие сделки мы проводим не только в столице, но во всех населенных пунктах Московской области.
+
+          Мы готовы рассмотреть любые варианты, предполагающие автовыкуп индивидуального и коммерческого транспорта, мототехники и других транспортных средств различных моделей.
+
+          В нашей компании продажа проводится в течение полутора - двух часов, и клиенту не придется даже добираться к нашему офису. Такой оперативный и доступный выкуп автомобилей в Москве да еще при этом - с выездом оценщика к клиенту, возможен далеко не в каждой компании.
+
+          Подать заявку на выгодной и дорогой выкуп автомобиля может любой, на кого рассчитан автовыкуп, а именно:
+
+          Автовладельцы, которых интересует высокая стоимость своего автомобиля и срочность сделки;
+          Владельцы неисправной и аварийной техники;
+          Автомобиль находится в кредите;
+          Те, кто не имеет возможности сделать оформление документов на ТС;
+          Те, кому срочно понадобились деньги и есть возможно продать только свой автомобиль.
+          Одно из главных достоинство нашей компании в том, что мы осуществляем выкуп авто в Москве в беспрерывном режиме – каждый день и круглосуточно. Для нас нет ограничений в выкупе абсолютно любой техники – будь то старенький ВАЗ или дорогая иномарка.
+          </p>
+          <div class='col-md-12' id='string'>
+            <p></p>
           </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>оценка автомобиля</h1></button></a>
+            <h3>Выкуп автомобилей  и водный транспорт следующех категорий</h3>
+          <div class='col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-2' id='kinds'>
+            <div class='col-md-3 col-sm-3'>
+              <img src='/static/leg.jpg'><br> легковой автомобиль
+            </div>
+            <div class='col-md-3 col-sm-3 col-xs-10'>
+              <img src='/static/gruz.jpg'><br> грузовой автомобиль
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <img src='/static/mop.jpg'><br> мотоциклы, квадрациклы, мопеды
+            </div>
+            <div class='col-md-3 col-sm-3'>
+              <img src='/static/skut.jpg'><br> водный скутер
+            </div>
           </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп авто с пробегом</h1></button></a>
-          </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп авто без документов</h1></button></a>
-          </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
-          </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп авто на запчасти</h1></button></a>
-          </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп авто с любыми проблемами</h1></button></a>
-          </div>
-          <div class='col-md-3'>
-            <a><button id='menu'><h1>выкуп битых авто</h1></button></a>
+          <div class='col-md-12' id='string'>
+            <p></p>
           </div>
         </div>
+        </div>
+      </div>
         <div class='main-page'>
-        <div class='col-md-3' id='form'>
-          <h3>Быстрая оценка</h3>
-            <div class="btn-group">
-              <button type="button" id="brandButton" class="btn btn-default dropdown-toggle" \
-                                    data-toggle="dropdown">марка<span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" id="brand">
-                {% for brand in brands %}
-                  <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
-                {% endfor %}
-              </ul>
+          <div class='col-md-3 col-sm-12 col-xs-12' id='form'>
+            <div class='col-md-12 col-md-offset-0  col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-2'>
+              <h3>Быстрая оценка</h3>
+              <div class="btn-group">
+                <button type="button" id="brandButton" class="btn btn-default dropdown-toggle" \
+                                      data-toggle="dropdown">марка<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" id="brand">
+                  {% for brand in brands %}
+                    <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="btn-group">
+                <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
+                                      data-toggle="dropdown">модель<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" id="model"></ul>
+              </div>
+              <div class="btn-group">
+                <button type="button" id="yearButton" class="btn btn-default dropdown-toggle" \
+                                      data-toggle="dropdown">год<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" id="year">
+                  {% for year in years %}
+                    <li class="year"><a href="#">{{year.year}}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <input class="form-group" type="text" id="phone" placeholder="контактный телефон" maxlength = "16">
+              <input class="form-group" type="text" id="name" placeholder="ваше имя">
+              <button type="button" id="send" class="btn btn-success">Оценить автомобиль</button>
+              <p id='answer'></p>
             </div>
-            <div class="btn-group">
-              <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
-                                    data-toggle="dropdown">модель<span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" id="model"></ul>
-            </div>
-            <div class="btn-group">
-              <button type="button" id="yearButton" class="btn btn-default dropdown-toggle" \
-                                    data-toggle="dropdown">год<span class="caret"></span></button>
-              <ul class="dropdown-menu" role="menu" id="year">
-                {% for year in years %}
-                  <li class="year"><a href="#">{{year.year}}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-            <input class="form-group" type="text" id="phone" placeholder="контактный телефон" maxlength = "16">
-            <input class="form-group" type="text" id="name" placeholder="ваше имя">
-            <button type="button" id="send" class="btn btn-success">Оценить автомобиль</button>
+          </div>
+        </div>
+        <div class='col-md-3 col-sm-12 col-xs-12' id='all-brands'>
+          <h4>Выкуп более 134 иномарок</h4>
+          <div class='col-md-12 col-sm-12 col-xs-12' id='list'>
+            {% for pop_brand in pop_brands %}
+              <div class='col-md-6 col-sm-3 col-xs-4'>
+                <button><img src='{{pop_brand.icon}}'></button><a>{{pop_brand.brand}}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
         </div>
         </div>
       </div>
@@ -97,60 +152,6 @@
           <!-- </div> -->
         <!-- </div> -->
       <!-- </div> -->
-      <div class='row' id='text'>
-        <div class='col-md-9'>
-        <h1>Срочный выкуп авто - дорого!</h1>
-        <p>Если нет времени на поиск покупателя вашего автомобиля или срочно понадобились финансы , наша компания "Авто Семья" в сжатые сроки осуществит срочный выкуп авто. Причем такие сделки мы проводим не только в столице, но во всех населенных пунктах Московской области.
-
-        Мы готовы рассмотреть любые варианты, предполагающие автовыкуп индивидуального и коммерческого транспорта, мототехники и других транспортных средств различных моделей.
-
-        В нашей компании продажа проводится в течение полутора - двух часов, и клиенту не придется даже добираться к нашему офису. Такой оперативный и доступный выкуп автомобилей в Москве да еще при этом - с выездом оценщика к клиенту, возможен далеко не в каждой компании.
-
-        Подать заявку на выгодной и дорогой выкуп автомобиля может любой, на кого рассчитан автовыкуп, а именно:
-
-        Автовладельцы, которых интересует высокая стоимость своего автомобиля и срочность сделки;
-        Владельцы неисправной и аварийной техники;
-        Автомобиль находится в кредите;
-        Те, кто не имеет возможности сделать оформление документов на ТС;
-        Те, кому срочно понадобились деньги и есть возможно продать только свой автомобиль.
-        Одно из главных достоинство нашей компании в том, что мы осуществляем выкуп авто в Москве в беспрерывном режиме – каждый день и круглосуточно. Для нас нет ограничений в выкупе абсолютно любой техники – будь то старенький ВАЗ или дорогая иномарка.
-        </p>
-        </div>
-        <div class='col-md-3' id='all-brands'>
-          <h4>Выкуп более 134 иномарок</h4>
-          <div class='col-md-12' id='list'>
-            {% for brand in brands %}
-              <div class='col-md-6'>
-                <button><img src='{{brand.icon}}'></button><a>{{brand.brand}}</a>
-              </div>
-            {% endfor %}
-          </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-9' id='string'>
-        <p></p>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-9'>
-          <h3>Выкуп автомобилей  и водный транспорт следующех категорий</h3>
-          <div class='col-md-3'>
-            <img src='/static/leg.jpg'></ br> легковой автомобиль
-          </div>
-          <div class='col-md-3'>
-            <img src='/static/gruz.jpg'></ br> грузовой автомобиль
-          </div>
-          <div class='col-md-3'>
-            <img src='/static/mop.jpg'></ br> мотоциклы, квадрациклы, мопеды
-          </div>
-          <div class='col-md-3'>
-            <img src='/static/skut.jpg'></ br> водный скутер
-          </div>
-        </div>
-        <div class='col-md-9' id='string'>
-        <p></p>
-        </div>
-      </div>
 
     </div><!-- /.carousel -->
 

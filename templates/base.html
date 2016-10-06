@@ -48,8 +48,27 @@
        <div class="col-md-4" id='call'>
          <button><img src='/static/ttt.png'></button>
       </div>
-       <div class="col-md-4" id="contacts">
-         <a role="button">Заказать обратный звонок</a>
+      <div class="col-md-4" id="contacts">
+        <!-- <p id="callback">Заказать обратный звонок</p> -->
+
+        <a role="button" data-toggle="modal" data-target="#callBack">Заказать обратный звонок</a>
+        <div id="callBack" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Заказать обратный звонок</h4>
+              </div>
+              <div class="modal-body">
+                <input class="form-group" type="text" id="nameCall" placeholder="ваше имя">
+                <input class="form-group" type="text" id="phoneCall" placeholder="контактный телефон" maxlength = "16">
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="sendCallBack" class="btn btn-success">Отправить</button>
+                <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
          <div class="number">
            <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+7 916 999 99 99
          </div>
@@ -58,7 +77,7 @@
   </div>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container" id="main-menu">
-      <div class='col-md-10 col-md-offset-1'>
+      <div class='col-md-10 col-md-offset-2 col-sm-12'>
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Открыть меню</span>
@@ -66,16 +85,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class='hidden-md hidden-lg'>
+          <div class='hidden-md hidden-lg hidden-sm'>
             <a class="navbar-brand" href="#">+7 916 999 99 99</a>
           </div>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar">
-              <li><a href="#about"></a></li>
-              <li><a href="#about"></a></li>
-              <li><a href="#about"></a></li>
-              <li class="active"><a href="#">Оценка автомобиля</a></li>
+              <!-- <li><a href="#about"></a></li> -->
+              <!-- <li><a href="#about"></a></li> -->
+              <!-- <li><a href="#about"></a></li> -->
+              <li><a href="/">Главная</a></li>
+              <li><a href="/ocenka">Оценка автомобиля</a></li>
               <li><a href="#contact">услуги</a></li>
               <li><a href="#">Автовыкуп по Москве</a></li>
               <li><a href="#">О компании</a></li>
@@ -86,16 +106,21 @@
     </div>
   </nav>
   <div class="container">
-    <div class="hidden-md hidden-lg">
-       <div class="col-md-4 col-md-offset-1">
-         <h1>Авто Выкуп</h1>
-         <h3>Выкуп автомобилей по Москве и Московской области</h3>
+    <div class="hidden-md hidden-lg" id = 'hidden-head'>
+       <div class="col-sm-1 col-xs-2" >
+         <img src='/static/lable.jpg' id='lable'>
+       </div>
+         <div class='col-sm-10 col-sm-offset-1 col-xs-8'>
+       <div class="col-sm-5" >
+         <h3>Авто Выкуп</h3>
+         <h4>Выкуп автомобилей по Москве и Московской области</h4>
          <p>работаем круглосуточно</p>
        </div>
-       <div class="col-md-4 col-md-offset-3">
+       <div class="col-sm-6 col-sm-offset-1">
          </br >
-         <h4>Заказать обратный звонок</h4>
+         <p>Заказать обратный звонок</p>
          <h1>+7 916 999 99 99</h1>
+       </div>
        </div>
     </div>
   </div>

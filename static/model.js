@@ -95,6 +95,8 @@ $(document).ready(function(){
         // about person
         var name = $("#name").get(0).value;
         var phone = $("#phone").get(0).value;
+        // var photo = $("#photo").get(0);
+        // console.log(photo);
         if (phone.length != 0 && name.length != 0 && phone != '+7 --- --- -- --' && phone.length == 16) {
             $.post('/result',
                 {'brand': brand,
@@ -104,6 +106,7 @@ $(document).ready(function(){
                     'price': price,
                     'km':km,
                     'name': name,
+                    // 'photo': photo,
                     'phone': phone},
                 function (answer) {
                     $('#answer').html(answer);
@@ -114,8 +117,19 @@ $(document).ready(function(){
             $("#phone").css('background', 'red');
             $("#phone").get(0).placeholder = 'укажите номер телефона';
         };
-
     });
-
+    // $("#sendPhoto").click(function() {
+        // var ph = $("#ph").get(0).value;
+        // console.log(ph);
+        // $.post('/photo',
+            // {'ph': ph},
+            // function (answer) {
+                // $('#answerPh').html(answer);
+        // });
+    // });
+    // $("#sendPhoto").click(function() {
+        // var ph2 = $("#ph2").get(0).value;
+        // console.log(ph2);
+    // });
 
 })

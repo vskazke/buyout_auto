@@ -4,7 +4,8 @@ import requests
 import os
 # from urllib import quote
 from slugify import Slugify, CYRILLIC
-from models import Models, Brands, Years
+from models import Models, Brands, Years, Pop_Brands
+
 
 
 def brand_auto():
@@ -104,19 +105,21 @@ def parse_pop_models():
         if brand.find('title') > 0:
             brands['url'] = brand.split('href="')[1].split('"')[0]
             brands['title'] = brand.split('title="')[1].split('"')[0]
-            print(brands['title'])
             if brands['title'] != 'Ferrari' and brands['title'] != 'TVR':
-                list_brands.append(brands)
-    return list_brands
+                for br in Brands.select().where(Brands.brand == brands['title']):
+                    print(br.icon)
+                    brands['icon'] = br.icon
+                    Pop_Brands.get_or_create(brand=brands['title'],
+                                             icon=brands['icon'])
 
 
 def main():
-    #  parse_pop_models()
+    parse_pop_models()
     #  brand_icon()
     #  model_auto()
     #  save_models()
     #  save_year()
-    for brand in Brands.select().where(Brands.brand == 'УАЗ'):
+    for brand in Pop_Brands.select().where(Pop_Brands.brand == 'УАЗ'):
         print(brand.icon)
         for auto in Models.select().where(Models.brand == brand):
             print(auto.models)

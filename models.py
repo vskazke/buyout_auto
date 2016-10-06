@@ -28,9 +28,16 @@ class Years(db.Model):
     year = CharField(unique=True)
 
 
+class Pop_Brands(db.Model):
+
+    brand = CharField(unique=True)
+    icon = CharField(default='')
+
+
 
 # create tables
 Brands.create_table(fail_silently=True)
 Models.create_table(fail_silently=True)
 Years.create_table(fail_silently=True)
+Pop_Brands.create_table(fail_silently=True)
 

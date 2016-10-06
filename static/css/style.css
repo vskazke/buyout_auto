@@ -77,14 +77,17 @@ body {
 }
 #menu {
     height: 150px;
+    width: 170px;
     background-color: #DF6509;
     border-color: black;
-    opacity: 0.8
+    /* opacity: 0.8; */
+    vertical-align:top;
 }
 #menu h1 {
     font-size: 16px;
 }
 .row #menu {
+    margin-left: 15px;
     margin-bottom: 10px;
 }
 h1 {
@@ -93,11 +96,16 @@ h1 {
     color:black;
 }
 a #menu {
+    font-size:16px;
+    font-weight:900;
     color: black;
 }
 #main-menu {
     font-size: 16px;
     font-weight:900;
+}
+#main-menu a{
+    padding: 10px;
 }
 .navbar-brand {
     font-size: 24px;
@@ -108,14 +116,15 @@ a #menu {
     /* margin: 0 90.5px; */
 
 }
-.form {
-    padding-top: 80px;
-}
+/* .form { */
+    /* padding-top: 80px; */
+/* } */
 #form {
     border: 4px solid;
     border-radius: 30px;
     border-color: black;
     background-color: #DF6509;
+    margin-bottom: 50px;
 }
 #call button{
     padding: 0;
@@ -141,7 +150,10 @@ a #menu {
     width: 100%;
 }
 #content {
-    max-width: 1060px;
+    /* max-width: 1060px; */
+}
+.main-page .btn-group{
+    /* margin-bottom: 20px; */
 }
 .main-page .btn-group button{
     width: 200px;
@@ -150,6 +162,7 @@ a #menu {
 .main-page .form-group{
     width: 200px;
     height: 50px;
+    /* margin-bottom: 20px; */
 }
 .main-page #send{
     width: 200px;
@@ -157,6 +170,7 @@ a #menu {
     font-size:16px;
     border-radius:30px;
     margin-bottom: 30px;
+    /* margin-top: 30px; */
 }
 #form h3 {
     color: black;
@@ -208,25 +222,39 @@ p {
     border-color: black;
     background-color: #DF6509;
     padding: 10px;
+    margin-top: 10px;
 }
 #list {
     background-color: black;
-    font-size:18px;
+    font-size:15px;
     font-weight:600;
     padding: 5px 0;
     opacity: 0.8;
+    box-shadow: inset 0px 3px 7px 0px;
 
 }
 #list .col-md-6 {
-    padding: 5px 0;
+    padding: 5px;
+    white-space: nowrap;
+
 }
+/* #list .col-sm-3 { */
+    /* padding: 5px; */
+    /* white-space: nowrap; */
+
+/* } */
 
 #all-brands img {
     width: 30px;
+    max-height: 30px;
 }
 #all-brands button {
+    height: 35px;
     padding: 0;
 }
 #top {
     max-width: 1060px;
+}
+#kinds img{
+    width:163px;
 }
