@@ -12,28 +12,28 @@
             <h1><span>Срочный</span> выкуп авто в любой точке города</h1>
             <img src="/static/main4.png">
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп любых авто</button></a>
+              <a href="/lubie_auto"><button id='menu'>выкуп любых авто</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>оценка автомобиля</button></a>
+              <a href='/ocenka'><button id='menu'>оценка автомобиля</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп авто с пробегом</button></a>
+              <a href='/s_probegom'><button id='menu'>выкуп авто с пробегом</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 co-sm-3'> -->
-              <a><button id='menu'>выкуп авто без документов</button></a>
+              <a href='bez_dokumentov'><button id='menu'>выкуп авто без документов</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп битых авто</button></a>
+              <a href='/bitie_auto'><button id='menu'>выкуп битых авто</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп авто на запчасти</button></a>
+              <a href="/na_zapchasti"><button id='menu'>выкуп авто на запчасти</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп авто с любыми проблемами</button></a>
+              <a href="lubie_problemi_auto"><button id='menu'>выкуп авто с любыми проблемами</button></a>
             <!-- </div> -->
             <!-- <div class='col-md-3 col-sm-3'> -->
-              <a><button id='menu'>выкуп битых авто</button></a>
+              <a href='/bez_ucheta'><button id='menu'>выкуп авто без снятия с учета</button></a>
             <!-- </div> -->
           <h1>Срочный выкуп авто - дорого!</h1>
           <p>Если нет времени на поиск покупателя вашего автомобиля или срочно понадобились финансы , наша компания "Авто Семья" в сжатые сроки осуществит срочный выкуп авто. Причем такие сделки мы проводим не только в столице, но во всех населенных пунктах Московской области.
@@ -114,7 +114,9 @@
           <div class='col-md-12 col-sm-12 col-xs-12' id='list'>
             {% for pop_brand in pop_brands %}
               <div class='col-md-6 col-sm-3 col-xs-4'>
-                <button><img src='{{pop_brand.icon}}'></button><a>{{pop_brand.brand}}</a>
+                {% with url = url_for('different_models', name = pop_brand.brand) %}
+                  <button><img src='{{pop_brand.icon}}'></button><a href={{url}}>{{pop_brand.brand}}</a>
+                {% endwith %}
               </div>
             {% endfor %}
           </div>

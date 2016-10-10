@@ -30,24 +30,146 @@ def models():
     brands = brands.order_by(Brands.brand)
     years = Years.select()
     years = years.order_by(Years.year.desc())
-    if request.method == 'POST':
-    # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit a empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join('/home/agafia/0/byuout_auto', filename))
-        #  with app.open_resource(filename) as fp:
-                #  msg.attach(filename, "image/png", fp.read())
-                #  msg.html = "<img src= %s>" % (fp)
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
 
-    return render_template('ocenka.html', brands=brands, years=years)
+    return render_template('ocenka.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/service', methods=['GET', 'POST'])
+def service():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('service.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/contacts', methods=['GET', 'POST'])
+def contacts():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('contacts.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('about.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/bitie_auto', methods=['GET', 'POST'])
+def bitie_auto():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('bitie_auto.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/s_probegom', methods=['GET', 'POST'])
+def s_probegom():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('s_probegom.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/lubie_auto', methods=['GET', 'POST'])
+def lubie_auto():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('lubie_auto.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/bez_dokumentov', methods=['GET', 'POST'])
+def bez_dokumentov():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('bez_dokumentov.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/na_zapchasti', methods=['GET', 'POST'])
+def na_zapchasti():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('na_zapchasti.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/bez_ucheta', methods=['GET', 'POST'])
+def bez_ucheta():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('bez_ucheta.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/lubie_problemi_auto', methods=['GET', 'POST'])
+def lubie_problemi_auto():
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('lubie_problemi_auto.html', brands=brands, years=years, pop_brands=pop_brands)
+
+
+@app.route('/<name>', methods=['GET', 'POST'])
+def different_models(name):
+    brands = Brands.select()
+    brands = brands.order_by(Brands.brand)
+    model = Brands.select().where(Brands.brand == name).get()
+    models = Models.select().where(Models.brand == model)
+    years = Years.select()
+    years = years.order_by(Years.year.desc())
+    pop_brands = Pop_Brands.select()
+    pop_brands = pop_brands.order_by(Pop_Brands.brand)
+
+    return render_template('brands.html', brands=brands, years=years,
+                           pop_brands=pop_brands, model=model,
+                           models=models)
 
 
 @app.route('/getBrand', methods=['POST'])

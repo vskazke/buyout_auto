@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block extra_head %}
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='model.js')}}"></script>
+{% endblock %}
+{%block content %}
+  <div class='container'>
+    <div class='col-md-9'>
+      <h2> УСЛУГИ ИНДИВИДУАЛЬНО ДЛЯ ЛЮБОЙ ПРОДАЖИ АВТОМОБИЛЯ</h2>
+
+      <div class='col-md-6'>
+        <li>СРОЧНЫЙ ВЫКУП АВТОМОБИЛЯ</li>
+        <li>КРЕДИТ ПОД ЗАЛОГ АВТО</li>
+        <li>ВЫКУП ДОРОГИХ АВТОМОБИЛЕЙ</li>
+        <li>ВЫКУП БИТЫХ АВТО</li>
+        <li>ВЫКУП КОММЕРЧЕСКИХ АВТОМОБИЛЕЙ</li>
+        <li>ВЫКУП ПРАВОРУЛЬНЫХ АВТОМОБИЛЕЙ</li>
+        <li>ВЫКУП ЛЮБЫХ АВТОМОБИЛЕЙ</li>
+        <li> ВЫКУП ВСЕХ ОТЕЧЕСТВЕННЫХ АВТОМОБИЛЕЙ</li>
+        <li> ТРЕЙД-ИН</li>
+      </div>
+      <div class='col-md-6'>
+        <li> ВЫКУП ИНОМАРОК</li>
+        <li> ВЫКУП МОТОЦИКЛОВ</li>
+        <li> ВЫКУП АВТОМОБИЛЕЙ В РЕГИОНАХ РОССИИ</li>
+        <li> ВЫКУП АВТОМОБИЛЕЙ С ЛЮБЫМ ПРОБЕГОМ</li>
+        <li> ВЫКУП АВТОМОБИЛЯ БЕЗ СНЯТИЯ С УЧЕТА</li>
+        <li> ВЫКУП КРЕДИТНЫХ АВТОМОБИЛЕЙ</li>
+        <li> ВЫКУП АВТО БЕЗ ДОКУМЕНТОВ</li>
+      </div>
+      <div class='col-md-12' id='string'>
+        <p></p>
+      </div>
+      <div class='col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-10 col-xs-offset-2' id='kinds'>
+        <h3>Выкуп автомобилей  и водный транспорт следующех категорий</h3>
+        <div class='col-md-3 col-sm-3'>
+          <img src='/static/leg.jpg'><br> легковой автомобиль
+        </div>
+        <div class='col-md-3 col-sm-3 col-xs-10'>
+          <img src='/static/gruz.jpg'><br> грузовой автомобиль
+        </div>
+        <div class='col-md-3 col-sm-3'>
+          <img src='/static/mop.jpg'><br> мотоциклы, квадрациклы, мопеды
+        </div>
+        <div class='col-md-3 col-sm-3'>
+          <img src='/static/skut.jpg'><br> водный скутер
+        </div>
+      </div>
+      <div class='col-md-12' id='string'>
+        <p></p>
+      </div>
+    </div>
+    <div class='main-page'>
+      <div class='col-md-3 col-sm-12 col-xs-12' id='form'>
+        <div class='col-md-12 col-md-offset-0  col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-2'>
+          <h3>Быстрая оценка</h3>
+          <div class="btn-group">
+            <button type="button" id="brandButton" class="btn btn-default dropdown-toggle" \
+                                  data-toggle="dropdown">марка<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" id="brand">
+              {% for brand in brands %}
+                <li class="brand"><a id ="{{brand.brand}}" href="#">{{brand.brand}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="modelButton" class="btn btn-default dropdown-toggle" \
+                                  data-toggle="dropdown">модель<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" id="model"></ul>
+          </div>
+          <div class="btn-group">
+            <button type="button" id="yearButton" class="btn btn-default dropdown-toggle" \
+                                  data-toggle="dropdown">год<span class="caret"></span></button>
+            <ul class="dropdown-menu" role="menu" id="year">
+              {% for year in years %}
+                <li class="year"><a href="#">{{year.year}}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          <input class="form-group" type="text" id="phone" placeholder="контактный телефон" maxlength = "16">
+          <input class="form-group" type="text" id="name" placeholder="ваше имя">
+          <button type="button" id="send" class="btn btn-success">Оценить автомобиль</button>
+          <p id='answer'></p>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-3 col-sm-12 col-xs-12' id='all-brands'>
+      <h4>Выкуп более 134 иномарок</h4>
+      <div class='col-md-12 col-sm-12 col-xs-12' id='list'>
+        {% for pop_brand in pop_brands %}
+          <div class='col-md-6 col-sm-3 col-xs-4'>
+            <button><img src='{{pop_brand.icon}}'></button><a>{{pop_brand.brand}}</a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- <div class='col-md-3 col-md-offset-9 col-sm-12 col-xs-12' id='all-brands'> -->
+      <!-- <h4>Услуги</h4> -->
+      <!-- <div class='col-md-12 col-sm-12 col-xs-12' id='list'> -->
+        <!-- <li><a href='#'>выкуп дорогих авто</a></li> -->
+        <!-- <li><a href='#'>выкуп дорогих авто</a></li> -->
+        <!-- <li><a href='#'>выкуп дорогих авто</a></li> -->
+        <!-- <li><a href='#'>выкуп дорогих авто</a></li> -->
+        <!-- <li><a href='#'>выкуп дорогих авто</a></li> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  </div>
+{%endblock%}
