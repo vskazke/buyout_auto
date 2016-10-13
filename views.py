@@ -178,6 +178,11 @@ def get_brand():
     return name
 
 
+@app.route('/answer')
+def answer():
+    return render_template('answer.html')
+
+
 @app.route('/getModel', methods=['POST'])
 def get_model():
     all_models = []

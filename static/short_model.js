@@ -106,7 +106,7 @@ $(document).ready(function(){
                     'name': name,
                     'phone': phone},
                 function (answer) {
-                    $('#answer').html(answer);
+                    $('#form').load('/answer');
             $('#callBack').modal('hide');
             });
         }else {

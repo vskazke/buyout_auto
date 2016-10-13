@@ -124,7 +124,7 @@ a #menu {
     border-radius: 30px;
     border-color: black;
     background-color: #DF6509;
-    /* margin-bottom: 50px; */
+    margin-bottom: 20px;
 }
 #call button{
     padding: 0;
@@ -183,6 +183,7 @@ p {
 #string {
     border-top: 2px solid;
     border-bottom: 2px solid;
+    margin-top: 20px;
 }
 #lable {
     width: 90px;
@@ -258,3 +259,15 @@ p {
 #kinds img{
     width:163px;
 }
+/* li { */
+    /* font-size: 16px; */
+    /* font-weight: 500; */
+/* } */
+ol {
+    font-size: 16px;
+    font-weight: 500;
+}
+/* ul { */
+    /* font-size: 16px; */
+    /* font-weight: 500; */
+/* } */

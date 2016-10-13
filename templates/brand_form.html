@@ -1,0 +1,12 @@
+<div class='col-md-3 col-sm-12 col-xs-12' id='all-brands'>
+  <h4>Выкуп более 134 иномарок</h4>
+  <div class='col-md-12 col-sm-12 col-xs-12' id='list'>
+    {% for pop_brand in pop_brands %}
+      <div class='col-md-6 col-sm-3 col-xs-4'>
+        {% with url = url_for('different_models', name = pop_brand.brand) %}
+          <button><img src='{{pop_brand.icon}}'></button><a href={{url}}>{{pop_brand.brand}}</a>
+        {% endwith %}
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -135,7 +135,7 @@ $(document).ready(function(){
                     // 'photo': photo,
                     'phone': phone},
                 function (answer) {
-                    $('#answer').html(answer);
+                    $('#form').load('/answer');
             });
         }else {
             $("#name").css('background', 'red');
