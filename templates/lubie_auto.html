@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block extra_head %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
 {% endblock %}
 {%block content %}
   <div class='container'>
@@ -25,6 +25,8 @@
       <p>
       Последний шаг является заключительным для продавца, продолжается выкуп любых авто в присутствии нового владельца – представителя компании.
       </p>
+      {% include 'conditions.html' %}
+      {% include 'categories.html' %}
     </div>
     <div class='main-page'>
       <div class='col-md-3 col-sm-12 col-xs-12' id='form'>

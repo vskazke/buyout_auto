@@ -40,13 +40,30 @@
            <img src='/static/lable.jpg' id='lable'>
          </div>
          <div class='col-md-9' id='brand'>
-           <h1><span>Авто</span> Выкуп</h1>
+           <h1><span>Алекс</span> Авто</h1>
          <h4>Выкуп автомобилей по Москве и МО</h4>
          <p>работаем круглосуточно</p>
          </div>
        </div>
        <div class="col-md-4" id='call'>
-         <button><img src='/static/ttt.png'></button>
+         <button data-toggle="modal" data-target="#ButtonCall"><img src='/static/ttt.png'></button>
+          <div id="ButtonCall" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                  <h4 class="modal-title">Заказать обратный звонок</h4>
+                </div>
+                <div class="modal-body">
+                  <input class="form-group" type="text" id="nameButton" placeholder="ваше имя">
+                  <input class="form-group" type="text" id="phoneButton" placeholder="контактный телефон" maxlength = "16">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" id="sendCallBackBut" class="btn btn-success">Отправить</button>
+                  <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+              </div>
+            </div>
+        </div>
       </div>
       <div class="col-md-4" id="contacts">
         <!-- <p id="callback">Заказать обратный звонок</p> -->
@@ -96,7 +113,28 @@
               <!-- <li><a href="#about"></a></li> -->
               <li><a href="/">Главная</a></li>
               <li><a href="/ocenka">Оценка автомобиля</a></li>
-              <li><a href="/service">Услуги</a></li>
+              <!-- <li><div class="dropdown"> -->
+                <!-- <a id="dLabel" data-toggle="dropdown" -->
+                                                                         <!-- role="button" aria-haspopup="true" aria-expanded="false"> -->
+                  <!-- Dropdown trigger -->
+                <!-- </a> -->
+                <!-- <ul class="dropdown-menu" aria-labelledby="dLabel"> -->
+                  <!-- <li><a href="/about">О компании</a></li> -->
+                  <!-- <li><a href="/contacts">Контакты</a></li> -->
+                <!-- </ul> -->
+                <!-- </div></li> -->
+                <li><a href="/service">Услуги</a>
+                  <ul id='podmenu'>
+                    <li><a href="/lubie_auto">выкуп любых авто</a></li>
+                    <li><a href='/ocenka'>оценка автомобиля</a></li>
+                    <li><a href='/s_probegom'>выкуп авто с пробегом</a></li>
+                    <li><a href='bez_dokumentov'>выкуп авто без документов</a></li>
+                    <li><a href='/bitie_auto'>выкуп битых авто</a></li>
+                    <li><a href="/na_zapchasti">выкуп авто на запчасти</a></li>
+                    <li><a href="lubie_problemi_auto">выкуп авто с любыми проблемами</a></li>
+                    <li><a href='/bez_ucheta'>выкуп авто без снятия с учета</a></li>
+                  </ul>
+                </li>
               <!-- <li><a href="/vikup_v_moskve">Автовыкуп по Москве</a></li> -->
               <li><a href="/about">О компании</a></li>
               <li><a href="/contacts">Контакты</a></li>
@@ -112,7 +150,7 @@
        </div>
          <div class='col-sm-10 col-sm-offset-1 col-xs-8'>
        <div class="col-sm-5" >
-         <h3>Авто Выкуп</h3>
+         <h3>Алекс Авто</h3>
          <h4>Выкуп автомобилей по Москве и Московской области</h4>
          <p>работаем круглосуточно</p>
        </div>

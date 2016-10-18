@@ -271,3 +271,42 @@ ol {
     /* font-size: 16px; */
     /* font-weight: 500; */
 /* } */
+ul #podmenu{
+    list-style: none; /* Для списка убираем маркеры */
+    margin: 0; /* Нет отступов вокруг */
+    padding: 0; /* Убираем поля вокруг текста */
+}
+li ul {
+    position: absolute; /* Подменю позиционируются абсолютно */
+    display: none; /* Скрываем подменю */
+    border: 3px solid #DF6509;
+    width: 200px;
+    /* margin-left: 165px; [> Сдвигаем подменю вправо <] */
+    /* margin-top: -2em; [> Сдвигаем подменю вверх <] */
+}
+#podmenu li a {
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color:  #9d9d9d;
+    background-color: black;
+    /* border-bottom: none; [> Границу снизу не проводим <] */
+}
+#podmenu a:hover {
+    color: white;
+}
+li a:hover {
+    color: white; /* Цвет текста активного пункта */
+    background-color: #5488af; /* Цвет фона активного пункта */
+}
+li:hover ul {
+    display: block; /* При выделении пункта курсором мыши отображается подменю */
+}
+/* .brd { */
+    /* border-bottom: 1px solid #ccc; [> Линия снизу <] */
+/* } */
+#ButtonCall .modal-footer  button {
+    padding: 6px 12px;
+    border: 1px solid #adadad;
+    margin: 0;
+}

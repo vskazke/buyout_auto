@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block extra_head %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
 {% endblock %}
 {%block content %}
   <div class='container'>
@@ -42,6 +42,8 @@
       </p>
       <p>Мы готовы оперативно осуществить выкуп аварийных битых авто в Москве в день обращения. Наша компания выплатит Вам за разбитое транспортное средство сумму, соответствующую ее реальной стоимости. Мы все возьмем на себя, от вас лишь минимум – пакет документов, ключи от машины и, конечно же, Ваше согласие на проведение операции – срочный автовыкуп после аварии.
       </p>
+      {% include 'conditions.html' %}
+      {% include 'categories.html' %}
 
 
 

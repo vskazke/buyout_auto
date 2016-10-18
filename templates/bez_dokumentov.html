@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block extra_head %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
 {% endblock %}
 {%block content %}
   <div class='container'>
@@ -22,6 +22,8 @@
       <p>
       Компания ----------- ориентирована на то, чтобы удовлетворить Ваши потребности. Это обуславливает наш безупречный сервис и привлекательную стоимость для каждого клиента.
       </p>
+      {% include 'conditions.html' %}
+      {% include 'categories.html' %}
     </div>
     <div class='main-page'>
       <div class='col-md-3 col-sm-12 col-xs-12' id='form'>

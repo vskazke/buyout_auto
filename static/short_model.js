@@ -90,6 +90,32 @@ $(document).ready(function(){
 
         });
     });
+    $( "#phoneButton" ).focus(function() {
+        var num = $(this).get(0).value = '+7 --- --- -- --';
+        $('#phoneCall').click(function() {
+            $(this).get(0).setSelectionRange(2, 2);
+            console.log(this.value);
+        });
+        var n = this.value;
+        $('#phoneCall').keypress(function(event) {
+            var num = $(this).get(0).selectionStart;
+            var element = String.fromCharCode(event);
+            // if ($(this).get(0).selectionStart == 1 || $(this).get(0).selectionStart == 0) {
+                // $(this).attr("id", "disabled");
+            // };
+            // $("#disabled").attr("disabled", "disabled");
+            if (num ==2 || num==6 || num == 10 || num == 13) {
+                this.value = this.value.substring(0, num) + ' ';
+            }
+            // if (num == 0 || num == 1 ) {
+                // return false;
+            // };
+            if (event.which >= 48 && event.which <= 57 || event.which == 32) {
+                return;
+            } else { return false };
+
+        });
+    });
     $("#send").click(function() {
         // about auto
         var brand = $("#brandButton").get(0).innerText;
@@ -134,4 +160,34 @@ $(document).ready(function(){
             $("#phoneCall").get(0).placeholder = 'укажите номер телефона';
         };
     });
+    $("#sendCallBackBut").click(function() {
+        var name = $("#nameButton").get(0).value;
+        var phone = $("#phoneButton").get(0).value;
+        if (phone.length != 0 && name.length != 0 && phone != '+7 --- --- -- --' && phone.length == 16) {
+            $.post('/callBack',
+                {'name': name,
+                 'phone': phone},
+                function (answer) {
+                    $('#answer').html(answer);
+            $('#callBack').modal('hide');
+            });
+        }else {
+            $("#nameButton").css('background', 'red');
+            $("#nameButton").get(0).placeholder = 'укажите ваше имя';
+            $("#phoneButton").css('background', 'red');
+            $("#phoneButton").get(0).placeholder = 'укажите номер телефона';
+        };
+    });
+    // $( ".dropdown-menu" ).mouseover(function() {
+        // console.log('ffff');
+        // // $('.dropdown').dropdown();
+        // $('.dropdown').toggleClass('open');
+              // // do something…
+    // });
+    // $( "#dLabel" ).mouseout(function() {
+        // console.log('ddd');
+        // // $('.dropdown').dropdown();
+        // $('.dropdown').removeClass('open');
+              // // do something…
+    // });
 })

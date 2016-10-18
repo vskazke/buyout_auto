@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block extra_head %}
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="{{url_for('static', filename='model.js')}}"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
 {% endblock %}
 {%block content %}
   <div class='container'>
@@ -23,6 +23,8 @@
       <li>Оформление двустороннего договора, который гарантирует законный выкуп машин с пробегом.</li>
       <li>Получение всей суммы на руки или банковским переводом.</li>
       <p>Следующие действия полностью возлагаются на плечи профессионалов компании, а продавец решает другие жизненные вопросы, ожидая документы после продажи.</p>
+      {% include 'conditions.html' %}
+      {% include 'categories.html' %}
 
     </div>
     <div class='main-page'>
