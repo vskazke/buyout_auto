@@ -19,9 +19,9 @@ def index():
     return render_template('index2.html', brands=brands, years=years, pop_brands=pop_brands)
 
 
-@app.route('/base')
-def base():
-    return render_template('base.html')
+#  @app.route('/base')
+#  def base():
+    #  return render_template('base.html')
 
 
 @app.route('/ocenka', methods=['GET', 'POST'])
@@ -160,13 +160,15 @@ def lubie_problemi_auto():
 def different_models(name):
     brands = Brands.select()
     brands = brands.order_by(Brands.brand)
-    model = Brands.select().where(Brands.brand == name).get()
-    models = Models.select().where(Models.brand == model)
+    try:
+        model = Brands.select().where(Brands.brand == name).get()
+        models = Models.select().where(Models.brand == model)
+    except Brands.DoesNotExist:
+        abort(404)
     years = Years.select()
     years = years.order_by(Years.year.desc())
     pop_brands = Pop_Brands.select()
     pop_brands = pop_brands.order_by(Pop_Brands.brand)
-
     return render_template('brands.html', brands=brands, years=years,
                            pop_brands=pop_brands, model=model,
                            models=models)
@@ -308,28 +310,28 @@ def test_message():
     mail.send(msg)
     return 'Отправлено'
 
-@app.route('/photo', methods=['GET', 'POST'])
-def upload_file():
-    if request.method == 'POST':
-        # check if the post request has the file part
-            if 'file' not in request.files:
-                flash('No file part')
-                return redirect(request.url)
-            file = request.files['file']
-            file2 = request.files['file2']
-            print(file)
-            # if user does not select file, browser also
-            # submit a empty part without filename
-            if file.filename == '':
-                flash('No selected file')
-                return redirect(request.url)
-            filename = secure_filename(file.filename)
-            filename2 = secure_filename(file2.filename)
-            file.save(os.path.join('/home/agafia/0/byuout_auto', filename))
-            file2.save(os.path.join('/home/agafia/0/byuout_auto', filename2))
-            msg = Message("hello",
-                          sender='agafonova.anastasia@gmail.com',
-                          recipients=["vskazke.info@gmail.com"],)
+#  @app.route('/photo', methods=['GET', 'POST'])
+#  def upload_file():
+    #  if request.method == 'POST':
+        #  # check if the post request has the file part
+            #  if 'file' not in request.files:
+                #  flash('No file part')
+                #  return redirect(request.url)
+            #  file = request.files['file']
+            #  file2 = request.files['file2']
+            #  print(file)
+            #  # if user does not select file, browser also
+            #  # submit a empty part without filename
+            #  if file.filename == '':
+                #  flash('No selected file')
+                #  return redirect(request.url)
+            #  filename = secure_filename(file.filename)
+            #  filename2 = secure_filename(file2.filename)
+            #  file.save(os.path.join('/home/agafia/0/byuout_auto', filename))
+            #  file2.save(os.path.join('/home/agafia/0/byuout_auto', filename2))
+            #  msg = Message("hello",
+                          #  sender='agafonova.anastasia@gmail.com',
+                          #  recipients=["vskazke.info@gmail.com"],)
             #  msg.body = 'text body'
             #  with app.open_resource(filename) as fp:
                     #  msg.attach(filename, "image/png", fp.read())
@@ -340,17 +342,17 @@ def upload_file():
             #  os.remove(os.path.join('/home/agafia/0/byuout_auto', filename))
             #  return redirect(url_for('uploaded_file',
                                         #  filename=filename))
-    return '''
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-    <p><input type=file name=file>
-    <p><input type=file name=file2>
-    <input  value=Upload>
-    </form>
-    '''
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory('/home/agafia/',
-                                          filename)
+    #  return '''
+    #  <!doctype html>
+    #  <title>Upload new File</title>
+    #  <h1>Upload new File</h1>
+    #  <form action="" method=post enctype=multipart/form-data>
+    #  <p><input type=file name=file>
+    #  <p><input type=file name=file2>
+    #  <input  value=Upload>
+    #  </form>
+    #  '''
+#  @app.route('/uploads/<filename>')
+#  def uploaded_file(filename):
+    #  return send_from_directory('/home/agafia/',
+                                          #  filename)
