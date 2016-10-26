@@ -146,6 +146,17 @@ a #menu {
 #content span {
     color:#DF6509;
 }
+#hidden-head span {
+    color:#DF6509;
+}
+#hidden-head a {
+    color:black;
+    font-size: 16px;
+    text-decoration: underline;
+}
+#hidden-head h3 {
+    margin-top: 0;
+}
 #content img {
     width: 100%;
 }

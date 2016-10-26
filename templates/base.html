@@ -124,6 +124,7 @@
                 <!-- </ul> -->
                 <!-- </div></li> -->
                 <li><a href="/service">Услуги</a>
+                  <div class="hidden-sm hidden-xs" id = 'hidden-head'>
                   <ul id='podmenu'>
                     <li><a href="/lubie_auto">выкуп любых авто</a></li>
                     <li><a href='/ocenka'>оценка автомобиля</a></li>
@@ -134,6 +135,7 @@
                     <li><a href="lubie_problemi_auto">выкуп авто с любыми проблемами</a></li>
                     <li><a href='/bez_ucheta'>выкуп авто без снятия с учета</a></li>
                   </ul>
+                  </div>
                 </li>
               <!-- <li><a href="/vikup_v_moskve">Автовыкуп по Москве</a></li> -->
               <li><a href="/about">О компании</a></li>
@@ -145,19 +147,39 @@
   </nav>
   <div class="container">
     <div class="hidden-md hidden-lg" id = 'hidden-head'>
-       <div class="col-sm-1 col-xs-2" >
-         <img src='/static/lable.jpg' id='lable'>
+       <div class="col-sm-1">
+         <div class="hidden-xs">
+           <img src='/static/lable.jpg' id='lable'>
+         </div>
        </div>
-         <div class='col-sm-10 col-sm-offset-1 col-xs-8'>
+         <div class='col-sm-10 col-sm-offset-1 col-xs-11'>
        <div class="col-sm-5" >
-         <h3>Алекс Авто</h3>
+         <h3><span>Алекс</span> Авто</h3>
          <h4>Выкуп автомобилей по Москве и Московской области</h4>
          <p>работаем круглосуточно</p>
        </div>
        <div class="col-sm-6 col-sm-offset-1">
-         </br >
-         <p>Заказать обратный звонок</p>
-         <h1>+7 967 180 07 00</h1>
+         <a role="button" data-toggle="modal" data-target="#callSM">ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК</a>
+        <div id="callSM" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header"><button class="close" type="button" data-dismiss="modal">×</button>
+                <h4 class="modal-title">Заказать обратный звонок</h4>
+              </div>
+              <div class="modal-body">
+                <input class="form-group" type="text" id="nameCall" placeholder="ваше имя">
+                <input class="form-group" type="text" id="phoneCall" placeholder="контактный телефон" maxlength = "16">
+              </div>
+              <div class="modal-footer">
+                <button type="button" id="sendCallBack" class="btn btn-success">Отправить</button>
+                <button class="btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+              </div>
+            </div>
+          </div>
+        </div>
+         <p>  +7 967 180 07 00</p>
+         <!-- <p>Заказать обратный звонок</p> -->
+         <!-- <h3>+7 967 180 07 00</h3> -->
        </div>
        </div>
     </div>

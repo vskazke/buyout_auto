@@ -16,6 +16,7 @@ def index():
     years = years.order_by(Years.year.desc())
     pop_brands = Pop_Brands.select()
     pop_brands = pop_brands.order_by(Pop_Brands.brand)
+    print(url_for('static', filename='css/styles.css'))
     return render_template('index2.html', brands=brands, years=years, pop_brands=pop_brands)
 
 
@@ -57,7 +58,7 @@ def contacts():
     pop_brands = Pop_Brands.select()
     pop_brands = pop_brands.order_by(Pop_Brands.brand)
 
-    return render_template('contacts.html', brands=brands, years=years, pop_brands=pop_brands)
+    return render_template('about.html', brands=brands, years=years, pop_brands=pop_brands)
 
 
 @app.route('/about', methods=['GET', 'POST'])
@@ -231,6 +232,7 @@ def result():
     #  file.save(os.path.join('/home/agafia/0/byuout_auto', filename))
     msg = Message("hello",
                   sender='agafonova.anastasia@gmail.com',
+                  #  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"],)
     #  with app.open_resource(filename) as fp:
             #  msg.attach(filename, "image/png", fp.read())
@@ -263,6 +265,7 @@ def short_result():
     #  subject = "Марка: %s" % brand
     msg = Message("hello",
                   sender='agafonova.anastasia@gmail.com',
+                  #  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"],)
     msg.body = 'text body'
     msg.html = "<ul>Автомобиль<li>Марка: %s</li>,\
@@ -289,7 +292,8 @@ def callBack():
     name = request.form['name']
     phone = request.form['phone']
     msg = Message("hello",
-                  sender='agafonova.anastasia@gmail.com',
+                  #  sender='agafonova.anastasia@gmail.com',
+                  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"],)
     msg.body = 'text body'
     msg.html = "<ul>Контактные данные<li>имя: %s</li>,\

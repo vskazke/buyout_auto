@@ -10,6 +10,11 @@
         <div class='row'>
           <div class='col-md-12'>
             <h1><span>Срочный</span> выкуп авто в любой точке города</h1>
+            <div class="hidden-md hidden-lg">
+              <div class='col-sm-12 col-xs-12' id='form'>
+                {% include 'fast_eval.html' %}
+              </div>
+            <!-- </div> -->
             <img src="/static/main4.png">
             {% include 'all_services.html' %}
           <h1>Срочный выкуп авто - дорого!</h1>
@@ -61,7 +66,7 @@
           Выкупаем кредитные автомобили и полностью погашаем долг клиента.
           </li>
           </ul>
-          {% include 'categories.html' %}
+            {% include 'categories.html' %}
           <!-- <div class='col-md-12' id='string'> -->
             <!-- <p></p> -->
           <!-- </div> -->
@@ -69,8 +74,10 @@
         </div>
       </div>
         <div class='main-page'>
-          <div class='col-md-3 col-sm-12 col-xs-12' id='form'>
-            {% include 'fast_eval.html' %}
+          <div class="hidden-sm hidden-xs">
+            <div class='col-md-3 col-sm-12 col-xs-12' id='form'>
+              {% include 'fast_eval.html' %}
+            </div>
           </div>
         {% include 'brand_form.html' %}
         </div>
