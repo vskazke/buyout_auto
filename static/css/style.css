@@ -23,6 +23,7 @@
     font-weight: 700;}
 
 body {
+    font-family: roboto;
     /* background-color: #61210B; */
 }
 
@@ -126,6 +127,9 @@ a #menu {
     background-color: #DF6509;
     margin-bottom: 20px;
 }
+.form-group {
+    padding: 6px; 12px;
+}
 #call button{
     padding: 0;
     border: 0;
@@ -199,7 +203,8 @@ p {
 #lable {
     width: 90px;
     height: 90px;
-    padding-top: 15px;
+    padding-right: 10px;
+    /* padding-top: 15px; */
 }
 #brand h1 span {
     color:#DF6509;
@@ -219,7 +224,7 @@ p {
     margin: 0;
 }
 #content h1 {
-    margin: 0;
+    /* margin: 0; */
 }
 #text h1{
     margin-top: 20px;
@@ -233,7 +238,7 @@ p {
     border-radius: 30px;
     border-color: black;
     background-color: #DF6509;
-    padding: 10px;
+    padding: 5px;
     margin-top: 10px;
 }
 #list {
@@ -244,6 +249,9 @@ p {
     opacity: 0.8;
     box-shadow: inset 0px 3px 7px 0px;
 
+}
+#list a {
+    margin: 5px;
 }
 #list .col-md-6 {
     padding: 5px;
@@ -257,8 +265,8 @@ p {
 /* } */
 
 #all-brands img {
-    width: 30px;
-    max-height: 30px;
+    width: 26px;
+    max-height: 26px;
 }
 #all-brands button {
     height: 35px;
