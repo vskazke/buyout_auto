@@ -116,6 +116,32 @@ $(document).ready(function(){
 
         });
     });
+    $( "#phoneCallSM" ).focus(function() {
+        var num = $(this).get(0).value = '+7 --- --- -- --';
+        $('#phoneCallSM').click(function() {
+            $(this).get(0).setSelectionRange(2, 2);
+            console.log(this.value);
+        });
+        var n = this.value;
+        $('#phoneCallSM').keypress(function(event) {
+            var num = $(this).get(0).selectionStart;
+            var element = String.fromCharCode(event);
+            // if ($(this).get(0).selectionStart == 1 || $(this).get(0).selectionStart == 0) {
+                // $(this).attr("id", "disabled");
+            // };
+            // $("#disabled").attr("disabled", "disabled");
+            if (num ==2 || num==6 || num == 10 || num == 13) {
+                this.value = this.value.substring(0, num) + ' ';
+            }
+            // if (num == 0 || num == 1 ) {
+                // return false;
+            // };
+            if (event.which >= 48 && event.which <= 57 || event.which == 32) {
+                return;
+            } else { return false };
+
+        });
+    });
     $("#send").click(function() {
         // about auto
         var brand = $("#brandButton").get(0).innerText;
@@ -176,6 +202,24 @@ $(document).ready(function(){
             $("#nameButton").get(0).placeholder = 'укажите ваше имя';
             $("#phoneButton").css('background', 'red');
             $("#phoneButton").get(0).placeholder = 'укажите номер телефона';
+        };
+    });
+    $("#sendCallBackSM").click(function() {
+        var name = $("#nameCallSM").get(0).value;
+        var phone = $("#phoneCallSM").get(0).value;
+        if (phone.length != 0 && name.length != 0 && phone != '+7 --- --- -- --' && phone.length == 16) {
+            $.post('/callBack',
+                {'name': name,
+                 'phone': phone},
+                function (answer) {
+                    $('#answer').html(answer);
+            $('#callSM').modal('hide');
+            });
+        }else {
+            $("#nameCallSM").css('background', 'red');
+            $("#nameCallSM").get(0).placeholder = 'укажите ваше имя';
+            $("#phoneCallSM").css('background', 'red');
+            $("#phoneCallSM").get(0).placeholder = 'укажите номер телефона';
         };
     });
     // $( ".dropdown-menu" ).mouseover(function() {
