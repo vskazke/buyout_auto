@@ -25,6 +25,7 @@ mail = Mail(app)
 app.config.from_object('config')
 
 
+
 mail = Mail(app)
 #  mail.init_app(app)
 
@@ -32,3 +33,5 @@ mail = Mail(app)
 
 #  DebugToolbarExtension(app)
 db = Database(app)
+
+import views

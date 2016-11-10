@@ -231,8 +231,8 @@ def result():
     #  print(file)
     #  file.save(os.path.join('/home/agafia/0/byuout_auto', filename))
     msg = Message("hello",
-                  sender='agafonova.anastasia@gmail.com',
-                  #  sender='anastacia111@yandex.ru',
+                  #  sender='agafonova.anastasia@gmail.com',
+                  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"],)
     #  with app.open_resource(filename) as fp:
             #  msg.attach(filename, "image/png", fp.read())
@@ -264,8 +264,8 @@ def short_result():
     #  massage = 'ggggg'
     #  subject = "Марка: %s" % brand
     msg = Message("hello",
-                  sender='agafonova.anastasia@gmail.com',
-                  #  sender='anastacia111@yandex.ru',
+                  #  sender='agafonova.anastasia@gmail.com',
+                  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"],)
     msg.body = 'text body'
     msg.html = "<ul>Автомобиль<li>Марка: %s</li>,\
@@ -306,7 +306,8 @@ def callBack():
 @app.route('/message')
 def test_message():
     msg = Message("hello",
-                  sender='agafonova.anastasia@gmail.com',
+                  #  sender='agafonova.anastasia@gmail.com',
+                  sender='anastacia111@yandex.ru',
                   recipients=["vskazke.info@gmail.com"])
     msg.body = 'text body'
     msg.html = '<b>HTML</b> body'
