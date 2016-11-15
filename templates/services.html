@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block extra_head %}
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='short_model.js')}}"></script>
+{% endblock %}
+{%block content %}
+  <div class='container'>
+    <div class='col-md-9'>
+      <h1>{{services.title}}</h1>
+      <p>{{services.body | safe}}</p>
+      {% include 'conditions.html' %}
+      {% include 'categories.html' %}
+    </div>
+      <div class='main-page'>
+        <div class="hidden-sm hidden-xs">
+          <div class='col-md-3 col-sm-12 col-xs-12' id='form'>
+            {% include 'fast_eval.html' %}
+          </div>
+        </div>
+        {% include 'brand_form.html' %}
+      </div>
+  </div>
+{%endblock%}
