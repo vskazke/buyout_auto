@@ -10,7 +10,7 @@ Frozen-Flask==0.12
 gunicorn==19.6.0
 isort==4.2.5
 itsdangerous==0.24
-Jinja2==2.8
+Jinja2==2.11.3
 lazy-object-proxy==1.2.2
 Markdown==2.6.6
 MarkupSafe==0.23
